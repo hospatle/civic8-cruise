@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CIVIC 8代　原廠定速改裝</title>
+<style>
+  :root {
+    --ink: #1a1a2e;
+    --muted: #5c6570;
+    --line: #d5dbe3;
+    --bg: #f4f6f8;
+    --card: #fff;
+    --power: #c0392b;
+    --ign: #d68910;
+    --gnd: #1e8449;
+    --sig: #1a5276;
+    --bus: #6c3483;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "Microsoft JhengHei", "PingFang TC", sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.55;
+  }
+  header {
+    background: #1a1a2e;
+    color: #fff;
+    padding: 28px 24px 22px;
+  }
+  header h1 { margin: 0 0 6px; font-size: 26px; font-weight: 700; }
+  header p { margin: 0; color: #c5ced8; }
+  main { max-width: 1080px; margin: 0 auto; padding: 20px 16px 48px; }
+  .note, .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin: 14px 0;
+  }
+  .warn { border-left: 5px solid #c0392b; }
+  .ok { border-left: 5px solid #1e8449; }
+  .info { border-left: 5px solid #1a5276; }
+  h2 { font-size: 20px; margin: 26px 0 8px; }
+  h3 { font-size: 16px; margin: 0 0 8px; }
+  p, li { font-size: 15px; }
+  .en { color: var(--muted); font-size: 13px; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { border-bottom: 1px solid var(--line); text-align: left; padding: 8px 6px; vertical-align: top; }
+  th { background: #eef2f6; font-weight: 700; }
+  code { font-family: Consolas, "Courier New", monospace; font-size: 13px; }
+  ol.steps { padding-left: 22px; }
+  ol.steps li { margin: 8px 0; }
+  .tag {
+    display: inline-block; font-size: 12px; padding: 2px 8px; border-radius: 999px;
+    background: #eef2f6; color: var(--muted); margin-right: 6px;
+  }
+  .tag.must { background: #fde8e8; color: #922b21; }
+  .tag.mt { background: #eafaf1; color: #1e8449; }
+  .tag.opt { background: #eaf2f8; color: #1a5276; }
+  footer { color: var(--muted); font-size: 13px; margin-top: 28px; }
+  a { color: #1a5276; }
+  a:hover { color: #0e344d; }
+  .buy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .buy-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 16px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .buy-card .who {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: #1a5276;
+    text-transform: none;
+  }
+  .buy-card h3 { margin: 0; font-size: 17px; }
+  .buy-card p { margin: 0; font-size: 14px; color: var(--muted); }
+  .buy-card .part { font-size: 13px; }
+  .buy-btn {
+    display: inline-block;
+    margin-top: 4px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    background: #1a1a2e;
+    color: #fff !important;
+    text-decoration: none !important;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+  }
+  .buy-btn:hover { background: #2c3e5a; }
+  .buy-btn.secondary {
+    background: #fff;
+    color: #1a1a2e !important;
+    border: 1px solid var(--line);
+  }
+  .buy-btn.secondary:hover { border-color: #1a5276; }
+  .buy-links { display: flex; flex-direction: column; gap: 8px; margin-top: auto; }
+  .flow {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
+    margin: 12px 0;
+  }
+  .flow .box {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 12px;
+    text-align: center;
+    font-size: 14px;
+  }
+  .flow .box strong { display: block; margin-bottom: 4px; }
+  .flow .arrow {
+    display: flex; align-items: center; justify-content: center;
+    color: var(--muted); font-size: 20px;
+  }
+  @media print {
+    body { background: #fff; }
+    header { background: #fff; color: #000; }
+    header p { color: #333; }
+    .card, .note { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Honda Civic 8代　原廠定速改裝</h1>
+  <p>Cruise Control OEM Retrofit　適用 FD 系（約 2006–2011，台灣俗稱喜美八代／8.5 代）。整理「要買什麼、怎麼做、怎麼驗」。這不是原廠手冊掃描檔。</p>
+  <p style="margin-top:10px"><a href="#buy" style="color:#9ec1ff">跳到零件購買網址</a></p>
+</header>
+<main>
+
+<section class="note warn">
+  <h3>先確認車型與風險</h3>
+  <p>這一頁講的是把<strong>原廠定速（OEM Cruise）</strong>補齊硬體：方向盤按鍵、時鐘彈簧、煞車／離合器開關、訊號線接到 ECU／MICU。不是掛後市場定速盒、也不是遙控油門那類產品。</p>
+  <p>施工一定會動到<strong>氣囊與方向盤</strong>。斷電、等電容放電、氣囊面朝上放置，缺一步都不建議動手。不熟氣囊拆裝就交給有經驗的師傅。</p>
+</section>
+
+<section class="note ok">
+  <h3>一句話結論（給學長們）</h3>
+  <p>Civic 8 代多數 ECU <strong>本來就有定速邏輯</strong>，低配只是少了方向盤開關、帶定速線路的時鐘彈簧、四線煞車開關（手排再加四線離合器開關）與幾條訊號線。接對之後，通常<strong>不用刷 ECU</strong>，儀表 CRUISE 燈會亮，約 40–45 km/h 以上可 SET。</p>
+</section>
+
+<h2>系統怎麼走</h2>
+<p>按下方向盤按鍵 → 訊號經時鐘彈簧進車身線束 → ECU 讀電阻／開關狀態控制電子節氣門維持車速。踩煞車或離合器 → 對應開關切斷／送解除訊號 → 定速立刻取消。</p>
+<div class="flow">
+  <div class="box"><strong>方向盤按鍵</strong><span class="en">Cruise Switch</span></div>
+  <div class="box"><strong>時鐘彈簧</strong><span class="en">Clock Spring / Spiral Cable</span></div>
+  <div class="box"><strong>分線盒／線束</strong><span class="en">Under-dash harness</span></div>
+  <div class="box"><strong>ECU</strong><span class="en">引擎電腦</span></div>
+  <div class="box"><strong>煞車開關</strong><span class="en">Brake SW</span></div>
+  <div class="box"><strong>離合器開關</strong><span class="en">Clutch SW（手排）</span></div>
+</div>
+
+<h2>要買什麼設備／零件</h2>
+<p>料號會因年式、房車／五門、有無音響快撥而略有差異。採購前請用 VIN 或拆件比對插頭。台灣店家常賣「日規定速套件＋專用端子」，本質就是下列零件＋預做好的 PIN 線。</p>
+
+<div class="card">
+<table>
+  <thead>
+    <tr><th>項目</th><th>說明</th><th>常見料號／備註</th><th>必要？</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>方向盤定速按鍵<br><span class="en">Cruise / Audio Switch</span></td>
+      <td>右側（或左右組）原廠按鍵：MAIN／SET／RES／CANCEL。可選「定速＋音響快撥」一組。</td>
+      <td><code>36770-SNA-A12</code>（含音響常見）<br><code>36770-SNA-A02</code>（偏定速）<br>可相容部分 Accord／CR-V RE 按鍵，以實物插頭為準</td>
+      <td><span class="tag must">必買</span></td>
+    </tr>
+    <tr>
+      <td>帶定速線路的時鐘彈簧<br><span class="en">Clock Spring</span></td>
+      <td>低配時鐘彈簧通常只有氣囊＋喇叭。定速版多出定速／音響接頭與內部線圈。VTI／低配常要換。</td>
+      <td>例：<code>77900-SNA-A11</code> 系列（請以車身料號為準）<br>安裝前回中心位，避免斷線</td>
+      <td><span class="tag must">多數必換</span></td>
+    </tr>
+    <tr>
+      <td>四線煞車開關<br><span class="en">Stop &amp; Cruise Switch</span></td>
+      <td>原車若是兩線「只管煞車燈」，要換成四線：多兩腳給定速解除／ECU、MICU。</td>
+      <td><code>36750-SMA-013</code>（取代 003）</td>
+      <td><span class="tag must">必買</span></td>
+    </tr>
+    <tr>
+      <td>四線離合器開關<br><span class="en">Clutch Pedal Switch</span></td>
+      <td>手排：兩線版只顧「不踩離合器不能發動」。定速需要另兩線「踩下＝解除定速」。</td>
+      <td>依手排原廠四線件；一端接地、一端進 ECU（常見討論為 ECU A41）</td>
+      <td><span class="tag mt">手排必查</span></td>
+    </tr>
+    <tr>
+      <td>專用端子／PIN 線／線束<br><span class="en">Pigtails / harness</span></td>
+      <td>ECU、MICU、分線盒、時鐘彈簧、煞車開關空腳要插原廠端子。台灣套件多半已壓好，避免剪破原線硬接。</td>
+      <td>殺肉線束拆 PIN，或買店家「專用端子線束」</td>
+      <td><span class="tag must">必備</span></td>
+    </tr>
+    <tr>
+      <td>分線盒 10 PIN 母座（若沒有）</td>
+      <td>部分低配儀表下方白／分線座缺定速用 10 PIN，要補插座或整段線束。</td>
+      <td>拆高配儀表線束最省事</td>
+      <td><span class="tag opt">視車況</span></td>
+    </tr>
+    <tr>
+      <td>儀表（可選）</td>
+      <td>有些低配儀表沒有 CRUISE MAIN 燈，功能仍可能可用，但看不到指示。</td>
+      <td>換高配儀表，或自己補 LED（進階）</td>
+      <td><span class="tag opt">可選</span></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<section class="note info">
+  <h3>台灣店家常見「套件」怎麼對應</h3>
+  <ul>
+    <li><strong>單邊定速</strong>：按鍵＋煞車開關＋PIN 線；VTI／無定速時鐘彈簧者另加螺旋線圈（時鐘彈簧）。</li>
+    <li><strong>定速＋音響快撥</strong>：左右按鍵組＋上述線路；音響另拉兩條到主機 20 PIN。</li>
+    <li><strong>按鍵燈光升級</strong>：外加，不影響定速邏輯。</li>
+  </ul>
+  <p>報價會因是否含工資、是否換時鐘彈簧而差很多；零件自備再找熟的師傅做氣囊與接腳通常最划算。</p>
+</section>
+
+<h2 id="buy">要去哪裡買？依你的情況點按鈕</h2>
+<p>先選情境，再點「去購買」。下單前跟賣家確認：年式、房車／五門、要不要換時鐘彈簧、手排要不要離合器開關。</p>
+
+<div class="buy-grid">
+  <article class="buy-card">
+    <div class="who">情境 A　最省事（推薦）</div>
+    <h3>買台灣整套定速套件</h3>
+    <p>含按鍵、煞車開關、專用 PIN 線，通常不用自己剪線。VTI 記得問有沒有含螺旋線圈（時鐘彈簧）。</p>
+    <div class="buy-links">
+      <a class="buy-btn" href="https://yixuan-autocar.com/productshow/428" target="_blank" rel="noopener">去逸軒買／約安裝（台中）</a>
+      <a class="buy-btn secondary" href="https://www.ruten.com.tw/item/22219953444667/" target="_blank" rel="noopener">去露天看翔浜「定速＋音響」套件</a>
+    </div>
+  </article>
+
+  <article class="buy-card">
+    <div class="who">情境 B　先比價再決定</div>
+    <h3>一次看露天／Yahoo／蝦皮價格</h3>
+    <p>搜尋關鍵字已幫你設好。適合想比較「單買按鍵」或「整套含工資」的人。</p>
+    <div class="buy-links">
+      <a class="buy-btn" href="https://feebee.com.tw/s/civic%E5%85%AB%E4%BB%A3%E5%AE%9A%E9%80%9F/" target="_blank" rel="noopener">用飛比搜「civic八代定速」</a>
+      <a class="buy-btn secondary" href="https://biggo.com.tw/s/Civic%208%E4%BB%A3%E5%AE%9A%E9%80%9F" target="_blank" rel="noopener">用 BigGo 搜「Civic 8代定速」</a>
+    </div>
+  </article>
+
+  <article class="buy-card">
+    <div class="who">情境 C　自己備料（會接線）</div>
+    <h3>方向盤定速＋音響按鍵</h3>
+    <p class="part">料號 <code>36770-SNA-A12</code>（含音響快撥常見）</p>
+    <p>只要按鍵、線束自己處理時用。另有偏定速版 <code>A02</code>。</p>
+    <div class="buy-links">
+      <a class="buy-btn" href="https://www.hondapartsnow.com/genuine/honda~switch~assy~36770-sna-a12.html" target="_blank" rel="noopener">買定速＋音響按鍵（A12）</a>
+      <a class="buy-btn secondary" href="https://www.hondapartsnow.com/genuine/honda~switch~assy~36770-sna-a02.html" target="_blank" rel="noopener">買偏定速按鍵（A02）</a>
+    </div>
+  </article>
+
+  <article class="buy-card">
+    <div class="who">情境 C　自己備料</div>
+    <h3>四線煞車開關（必換件）</h3>
+    <p class="part">料號 <code>36750-SMA-013</code></p>
+    <p>兩線改四線用。踩煞車才會解除定速；單價通常不高。</p>
+    <div class="buy-links">
+      <a class="buy-btn" href="https://www.hondapartsnow.com/genuine/honda~sw~stop~cruise~36750-sma-013.html" target="_blank" rel="noopener">買原廠煞車開關</a>
+      <a class="buy-btn secondary" href="https://www.amazon.com/Genuine-Honda-36750-SMA-013-Control-Assembly/dp/B00IFPPE1M" target="_blank" rel="noopener">到 Amazon 看同料號</a>
+    </div>
+  </article>
+
+  <article class="buy-card">
+    <div class="who">情境 C　VTI／低配常要</div>
+    <h3>時鐘彈簧（螺旋線圈）</h3>
+    <p class="part">OEM 例 <code>77900-SNA-A02</code>　副廠常見 <code>77900-SNA-K02</code></p>
+    <p>沒有定速線路的時鐘彈簧一定要換。買前對插頭針數；台灣套件店可直接加購。</p>
+    <div class="buy-links">
+      <a class="buy-btn" href="https://www.alldiscountparts.com/oem-parts/honda-clock-spring-77900snaa02" target="_blank" rel="noopener">看 OEM 時鐘彈簧頁面</a>
+      <a class="buy-btn secondary" href="https://yixuan-autocar.com/productshow/428" target="_blank" rel="noopener">問逸軒加購螺旋線圈</a>
+    </div>
+  </article>
+</div>
+
+<section class="note warn">
+  <h3>下單前三句話</h3>
+  <ul>
+    <li>不會接線 → 走<strong>情境 A</strong>，選含專用端子、不用剪原廠線的套件。</li>
+    <li>VTI／低配 → 問清楚「包不包時鐘彈簧」；沒包就要另買。</li>
+    <li>手排 → 再確認有<strong>四線離合器開關</strong>。海外單零件運費可能比台灣整套貴。</li>
+  </ul>
+</section>
+
+<h2>具體作法（施工順序）</h2>
+<ol class="steps">
+  <li><strong>斷電</strong>：拆電瓶負極，等至少 5–10 分鐘再動氣囊。</li>
+  <li><strong>拆氣囊與方向盤</strong>：側邊固定孔鬆開氣囊，拔黃色氣囊接頭；方向盤與轉向柱做對正記號後拆中央螺帽。</li>
+  <li><strong>換時鐘彈簧</strong>（若需要）：拔舊件各接頭，新件鎖定在中心位置再裝上；確認多出的定速／音響插座可用。</li>
+  <li><strong>裝方向盤按鍵</strong>：按鍵線接到時鐘彈簧對應插座，再裝回方向盤與氣囊。</li>
+  <li><strong>換四線煞車開關</strong>：煞車踏板上方。踩下必須能解除定速；調整間隙，避免「沒踩煞車卻一直當踩著」導致無法 SET。</li>
+  <li><strong>手排換／確認四線離合器開關</strong>：解除訊號接到 ECU 對應腳（常見討論：Connector A pin 41 → 接地側經開關）。</li>
+  <li><strong>拉定速訊號線</strong>（核心）：
+    <ul>
+      <li>時鐘彈簧後方接頭：定速 ON／OFF、SET／DECEL、RES／ACCEL、接地等到分線盒／車身線束。</li>
+      <li>煞車開關第 3 腳 → <strong>ECU Connector A pin 39</strong>（常見寫法：A39）。</li>
+      <li>煞車開關第 4 腳 → <strong>MICU Q2</strong>（車身電腦，常見寫法）。</li>
+      <li>時鐘彈簧接地腳 → 轉向柱附近原廠搭鐵點。</li>
+    </ul>
+  </li>
+  <li><strong>整理線束</strong>：沿原線走，避開銳邊與熱源；端子壓實，煞車相關線建議加保險絲。</li>
+  <li><strong>接回電瓶、路試</strong>：見下方驗收。</li>
+</ol>
+
+<section class="note warn">
+  <h3>針腳務必上原廠圖再對</h3>
+  <p>上面 A39／MICU Q2／時鐘彈簧腳位是歐美車友對 2006–2008 Civic 的常見接法整理，<strong>台規／年式／五門與房車可能差一腳</strong>。開工前請對你那一台的《配線圖集》Cruise Control 章節，或拆一台同代有定速的車比對線色。插錯 ECU 空腳可能造成無法啟動或電裝異常。</p>
+</section>
+
+<h2>時鐘彈簧兩側接腳（常見對照）</h2>
+<p>方向盤側與轉向柱後方腳號不同、功能對應。下表整理自 8 代 Civic 論壇 OEM DIY（顏色可自訂，功能要對）。</p>
+<div class="card">
+<table>
+  <thead>
+    <tr><th>功能</th><th>方向盤側腳</th><th>常見線色</th><th>轉向柱後方腳</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>喇叭</td><td>3</td><td>藍</td><td>10</td></tr>
+    <tr><td>定速 SET／減速</td><td>4</td><td>黃</td><td>9</td></tr>
+    <tr><td>定速 RES／加速</td><td>5</td><td>白</td><td>8</td></tr>
+    <tr><td>定速 ON／OFF</td><td>6</td><td>粉</td><td>7</td></tr>
+    <tr><td>接地</td><td>7</td><td>灰</td><td>6</td></tr>
+    <tr><td>音響控制（若有）</td><td>9／10</td><td>棕／紫</td><td>4／3</td></tr>
+    <tr><td>照明 − ／＋</td><td>11／12</td><td>紅／綠</td><td>2／1</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2>工具清單</h2>
+<div class="card">
+<ul>
+  <li>10 mm 套筒（電瓶負極）、方向盤中央螺帽套筒（常見 17／19 mm，以實車為準）</li>
+  <li>氣囊固定用工具（依車型為星形或專用孔）</li>
+  <li>塑膠撬棒、十字／一字起子</li>
+  <li>萬用電錶（通斷、電壓）</li>
+  <li>壓線鉗＋原廠規格端子、熱縮套管、紮線帶</li>
+  <li>（建議）同代有定速車的線色照片或配線圖 PDF</li>
+</ul>
+</div>
+
+<h2>驗收與常見問題</h2>
+<div class="card">
+<table>
+  <thead>
+    <tr><th>現象</th><th>先查什麼</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>CRUISE MAIN 燈不亮</td><td>電瓶、相關保險絲、主開關線路、時鐘彈簧通斷、儀表是否有該指示燈</td></tr>
+    <tr><td>燈亮但無法 SET</td><td>車速是否 ≥ 約 40–45 km/h；煞車開關是否誤判一直「踩著」；手排離合器開關；SET 線路電阻</td></tr>
+    <tr><td>定速中突然解除</td><td>輕觸煞車／離合器、開關間隙過緊、陡坡負荷過大（有時屬正常）</td></tr>
+    <tr><td>氣囊燈亮</td><td>氣囊接頭未插好、時鐘彈簧沒回中或損壞——先修氣囊再談定速</td></tr>
+    <tr><td>要不要刷電腦？</td><td>絕大多數 8 代接好線即可，不用診斷儀啟用。極少數可斷電 10–15 分鐘讓 ECU 重新學習</td></tr>
+  </tbody>
+</table>
+</div>
+
+<section class="note ok">
+  <h3>路試驗收步驟</h3>
+  <ol>
+    <li>靜止：點火 ON，按 MAIN，儀表 CRUISE 相關指示應亮。</li>
+    <li>安全路段加速到門檻速度以上，按 SET，右腳可離開油門且車速大致維持。</li>
+    <li>按 RES／CANCEL，確認恢復與取消。</li>
+    <li>踩煞車（手排再測離合器）應立刻解除。</li>
+    <li>確認氣囊燈熄滅、喇叭正常、方向盤回正無異音。</li>
+  </ol>
+</section>
+
+<h2>自排／手排差異速查</h2>
+<div class="card">
+<table>
+  <thead>
+    <tr><th></th><th>自排 AT／CVT</th><th>手排 MT</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>方向盤按鍵＋時鐘彈簧</td><td>要</td><td>要</td></tr>
+    <tr><td>四線煞車開關</td><td>要</td><td>要</td></tr>
+    <tr><td>四線離合器開關</td><td>不用</td><td>要（兩線就換）</td></tr>
+    <tr><td>刷 ECU</td><td>通常不用</td><td>通常不用</td></tr>
+  </tbody>
+</table>
+</div>
+
+<section class="note info">
+  <h3>參考來源（施工前請交叉比對）</h3>
+  <ul>
+    <li>8th Generation Honda Civic Forum：OEM Cruise／Audio Controls DIY（零件與腳位討論）</li>
+    <li>Honda 原廠零件：<code>36770-SNA-A12</code>、<code>36750-SMA-013</code> 等</li>
+    <li>日規／台規配線圖集：Cruise Control／車速控制巡航系統章節</li>
+    <li>台灣專用端子套件店家說明（FIT／Civic 8 共用料件時仍要以實車插頭為準）</li>
+  </ul>
+</section>
+
+<footer>
+  <p>廠內汽車維修專案　CIVIC 8 原廠定速　— 供查修與備料用。實際針腳以該車年式原廠配線為準；涉及氣囊請依安全程序操作。</p>
+</footer>
+</main>
+</body>
+</html>
